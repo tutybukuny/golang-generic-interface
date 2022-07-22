@@ -27,6 +27,9 @@ func main() {
 	productRepo.Insert(product)
 	productRepo.Update(product, 1)
 	productRepo.Delete(product, 1)
+	products := productRepo.GetAll()
+	products[0].Price = 1000
+	log.Printf("product price %d", products[0].Price)
 	//endregion
 
 	//region invoice repo

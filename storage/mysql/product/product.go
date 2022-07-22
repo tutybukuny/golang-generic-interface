@@ -10,6 +10,7 @@ type ProductStore struct {
 	*mysqlstorage.InsertStorage[*entity.Product]
 	*mysqlstorage.UpdateStorage[*entity.Product, int64]
 	*mysqlstorage.DeleteStorage[*entity.Product, int64]
+	*mysqlstorage.GetAllStorage[entity.Product]
 }
 
 func New(dbConnection string) *ProductStore {
@@ -17,5 +18,6 @@ func New(dbConnection string) *ProductStore {
 	insertRepo := mysqlstorage.NewInsertStorage[*entity.Product](baseRepo)
 	updateRepo := mysqlstorage.NewUpdateStorage[*entity.Product, int64](baseRepo)
 	deleteRepo := mysqlstorage.NewDeleteStorage[*entity.Product, int64](baseRepo)
-	return &ProductStore{baseRepo, insertRepo, updateRepo, deleteRepo}
+	getAllRepo := mysqlstorage.NewGetAllStorage[entity.Product](baseRepo)
+	return &ProductStore{baseRepo, insertRepo, updateRepo, deleteRepo, getAllRepo}
 }

@@ -9,4 +9,5 @@ type IProductRepo interface {
 	repository.IInsertRepo[*entity.Product]
 	repository.IUpdateRepo[*entity.Product, int64]
 	repository.IDeleteRepo[*entity.Product, int64]
+	repository.IGetAllRepo[entity.Product]
 }

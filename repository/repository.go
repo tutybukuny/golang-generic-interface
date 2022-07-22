@@ -13,3 +13,7 @@ type IUpdateRepo[E entity.IEntity, K any] interface {
 type IDeleteRepo[E entity.IEntity, K any] interface {
 	Delete(obj E, id K)
 }
+
+type IGetAllRepo[E entity.IEntity] interface {
+	GetAll() []*E
+}
